@@ -1,0 +1,17 @@
+create 'clients','personal','address'
+list 'clients'
+put 'clients', 1, 'personal:id', '71627'
+put 'clients', 1, 'personal:name', 'john'
+put 'clients', 1, 'address:city', 'Georgia'
+put 'clients', 1, 'address:street', '12 avenue'
+put 'clients', 2, 'personal:id', '28176'
+put 'clients', 2, 'personal:name', 'marie'
+put 'clients', 3, 'personal:id', '63512'
+put 'clients', 3, 'personal:name', 'rose'
+put 'clients', 3, 'address:city', 'Boston'
+put 'clients', 3, 'address:street', 'Pearson hill'
+scan 'clients'
+get 'clients', 1
+quit
+
+########### TE AMO #################################
