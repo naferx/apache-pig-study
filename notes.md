@@ -1,20 +1,27 @@
- ### Apache Pig Study
+### Apache Pig Study
  
+Basic experiments to understand Apache Pig features
 
-#### 
-
-Storing data into Apache HBase
-In order to load initial data into a HBase table, run the script `./import_data_hbase.sh``
-
-
-`parquet cat ../output/data3/part-m-00000.parquet`
-
- pig -param data=mydata myscript.pig
-
- /home/naf/tools/pig-0.17.0/lib/piggybank.jar
+#### Prerequisites
+It is expected to download and install JRE 11, Apache Hadoop 3.3.x, Apache Hbase 2.5.X and Apache Pig and set the respective `JAVA_HOME, HADOOP_HOME, HBASE_HOME, PIG_HOME` environment variables to the root directories of each technology.
 
 
- `parquet cat strings-2.parquet `
+#### Loading data
+
+In order to load the initial data into a HBase table, run the script `./import_data_hbase.sh` which will create and populate a new table named 'clients'. See `input/hbase_commands.txt`
+
+
+#### Running Apache Pig scripts
+Inside the pig folder execute
+`pig$ pig -x local -l -log./logs/ `
+
+
+`pig$ parquet schema ../output/data5/part-m-00000.snappy.parquet`
+
+`pig$ parquet cat ../output/data3/part-m-00000.snappy..parquet`
+
+
+`parquet cat strings-2.parquet `
  
 
  pig \
