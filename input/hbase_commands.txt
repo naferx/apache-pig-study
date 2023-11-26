@@ -13,5 +13,3 @@ put 'clients', 3, 'address:street', 'Pearson hill'
 scan 'clients'
 get 'clients', 1
 quit
-
-########### TE AMO #################################
