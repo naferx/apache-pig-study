@@ -5,4 +5,4 @@ DEFINE ParquetStorer org.apache.parquet.pig.ParquetStorer();
 records = LOAD '../input/sample.csv' 
                 USING PigStorage(',') AS (id: int, name: chararray);
 
-STORE records INTO '../output/data2' USING ParquetStorer;
+STORE records INTO '../output/parquet/export1' USING ParquetStorer;
