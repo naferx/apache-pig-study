@@ -8,32 +8,23 @@ It is expected to download and install JRE 11, Apache Hadoop 3.3.x, Apache Hbase
 
 #### Loading data
 
-In order to load the initial data into a HBase table, run the script `./import_data_hbase.sh` which will create and populate a new table named 'clients'. See `input/hbase_commands.txt`
+In order to load the initial data into a HBase table, start a local HBase instance `.$HBASE_HOME/bin/start-hbase`, then run the script `./import_data_hbase.sh` which will create and populate a new table named 'clients'. See `input/hbase_commands.txt`
 
 
 #### Running Apache Pig scripts
-Inside the pig folder execute
-`pig$ pig -x local csv_loader.pig`
+Inside the `pig`` folder you can find multiple Apache Pig scripts. 
+
+Type in your terminal
+
+```
+    pig$ pig -x local csv_loader.pig
+
+    pig$ pig -x local csv_to_parquet.pig
+```
 
 
-`pig$ parquet schema ../output/data5/part-m-00000.snappy.parquet`
+To check the output
 
-`pig$ parquet cat ../output/data3/part-m-00000.snappy..parquet`
+`pig$ parquet schema ../output/parquet/export1/part-m-00000.snappy.parquet`
 
-
-`parquet cat strings-2.parquet `
- 
-
- pig \
- -param SRC=data.txt  \ 
- -param DEST=../output/myFile.txt  \
- -param LOADER="'TextLoader() AS (line:chararray)'"  \ 
- -param GEN="clean.CLEAN_CSV(line)"  \
- -param STORAGE=PigStorage('|')"  \
- -f clean.pig
-
-
-pig \
-    -param outputLocation=s3://  \ 
-    -param tableGenerationPrefix=gen  \ 
-    -f csv_exporter.pig
+`pig$ parquet cat ../output/parquet/export1/part-m-00000.snappy.parquet`
