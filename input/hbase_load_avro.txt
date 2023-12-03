@@ -1,0 +1,4 @@
+create 'users','data'
+list 'users'
+scan 'users'
+quit
